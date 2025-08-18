@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+@source "hugo_stats.json";
