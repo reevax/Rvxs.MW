@@ -11,7 +11,7 @@
         {{ partial "css.html" . }}
     {{ end }}
 </head>
-<body class="font-roboto">
+<body class="font-roboto min-h-screen flex flex-col">
     <header class="w-full bg-white shadow-[0px_4px_18px_0_rgba(32,45,73,0.1)] p-8">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="font-playfair text-2xl">{{ .Site.Title }}</h1>
@@ -23,7 +23,7 @@
         </div>
     </header>
     
-    <main>
+    <main class="flex-1">
         {{ block "main" . }}{{ end }}
     </main>
     

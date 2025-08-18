@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "browserslist": "^4.25.2",
     "caniuse-lite": "^1.0.30001735",
     "chownr": "^3.0.0",

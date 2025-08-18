@@ -2,6 +2,11 @@ baseURL = 'https://maxwinthrop.co.uk/'
 languageCode = 'en-gb'
 title = 'A little learning'
 
+[[menu.main]]
+  name = "Articles"
+  url = "/articles/"
+  weight = 10
+
 [build]
   [build.buildStats]
     enable = true
