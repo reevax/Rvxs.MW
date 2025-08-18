@@ -13,8 +13,13 @@
 </head>
 <body class="font-roboto">
     <header class="w-full bg-white shadow-[0px_4px_18px_0_rgba(32,45,73,0.1)] p-8">
-        <div class="container mx-auto">
+        <div class="container mx-auto flex justify-between items-center">
             <h1 class="font-playfair text-2xl">{{ .Site.Title }}</h1>
+            <div class="flex gap-2">
+                <a href="{{ .Site.BaseURL }}/" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="{{ .Site.BaseURL }}/articles" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">Articles</a>
+                <a href="{{ .Site.BaseURL }}/about" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+            </div>
         </div>
     </header>
     
@@ -22,8 +27,59 @@
         {{ block "main" . }}{{ end }}
     </main>
     
-    <footer>
-        <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+    <footer class="bg-gray-50">
+
+        <div class="container mx-auto flex gap-2 py-8">
+
+            <div class="basis-1/3 flex flex-col gap-2">
+                <h2 class="font-semibold text-sm uppercase">
+                    About
+                </h2>
+
+                <p class="text-sm/7 text-gray-600">
+                    Max is a partner at Sintons LLP. The bulk of Max’s work involves contentious employment issues, and he appears regularly as an advocate in tribunals up and down the country.
+                </p>
+
+            </div>
+
+            <div class="basis-1/3 flex flex-col gap-2">
+
+                <h2 class="font-semibold text-sm uppercase">
+                    Recent Posts
+                </h2>
+
+                    <a href="/necessary-myths/">
+                        <p>
+                            Necessary Myths
+                        </p>
+                        <span>
+                            May 30
+                        </span>
+                    </a>
+                    <a href="/errors-of-law/">
+                        <p>
+                            Errors of Law
+                        </p>
+                        <span>
+                            July 15
+                        </span>
+                    </a>
+            </div>
+
+            <div class="basis-1/3 flex flex-col gap-2">
+
+                <h2 class="font-semibold text-sm uppercase">
+                    Social
+                </h2>
+
+                <a class="social-link" href="https://uk.linkedin.com/in/max-winthrop-50914b28">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                </a>
+            </div>
+
+        </div>
+
     </footer>
 </body>
 </html>
