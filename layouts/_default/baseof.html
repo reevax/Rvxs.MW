@@ -1,35 +1,59 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} - {{ .Site.Title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     {{ with (templates.Defer (dict "key" "global")) }}
-        {{ partial "css.html" . }}
+    {{ partial "css.html" . }}
     {{ end }}
 </head>
+
 <body class="font-roboto min-h-screen flex flex-col">
     <header class="w-full bg-white shadow-[0px_4px_18px_0_rgba(32,45,73,0.1)] p-8">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="font-playfair text-2xl">{{ .Site.Title }}</h1>
-            <div class="flex gap-2">
-                <a href="{{ .Site.BaseURL }}/" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
-                <a href="{{ .Site.BaseURL }}/articles" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">Articles</a>
-                <a href="{{ .Site.BaseURL }}/about" class="text-gray-500 font-medium hover:text-gray-900 text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-amber-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+        <div class="container mx-auto flex justify-between items-center max-w-4xl">
+            <a href="/" class="hover:text-primary">
+                <h1 class="font-playfair text-2xl">{{ .Site.Title }}</h1>
+            </a>
+            <div class="flex gap-2 items-center">
+                <a href="{{ .Site.BaseURL }}/"
+                    class="text-gray-500 font-medium text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="{{ .Site.BaseURL }}/articles"
+                    class="text-gray-500 font-medium text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300">Articles</a>
+                <a href="{{ .Site.BaseURL }}/about"
+                    class="text-gray-500 font-medium text-sm relative after:absolute after:w-0 after:-bottom-0.5 after:left-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300">About</a>
+                <a href="{{ .Site.Params.LinkedIn }}">
+                    <svg width="16px" height="16px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="group"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8Z"
+                            class="stroke-gray-500 group-hover:stroke-primary" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path d="M7 17V13.5V10" class="stroke-gray-500 group-hover:stroke-primary" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M11 17V13.75M11 10V13.75M11 13.75C11 10 17 10 17 13.75V17" class="stroke-gray-500 group-hover:stroke-primary"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7 7.01L7.01 6.99889" class="stroke-gray-500 group-hover:stroke-primary" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
-    
+
     <main class="flex-1">
         {{ block "main" . }}{{ end }}
     </main>
-    
-    <footer class="bg-gray-50">
 
-        <div class="container mx-auto flex gap-2 py-8">
+    <footer class="bg-gray-50 p-8">
+
+        <div class="container mx-auto flex gap-2 py-8 max-w-4xl">
 
             <div class="basis-1/3 flex flex-col gap-2">
                 <h2 class="font-semibold text-sm uppercase">
@@ -37,33 +61,28 @@
                 </h2>
 
                 <p class="text-sm/7 text-gray-600">
-                    Max is a partner at Sintons LLP. The bulk of Max’s work involves contentious employment issues, and he appears regularly as an advocate in tribunals up and down the country.
+                    Max is a partner at Sintons LLP. The bulk of Max’s work involves contentious employment issues, and
+                    he appears regularly as an advocate in tribunals up and down the country.
                 </p>
 
             </div>
 
-            <div class="basis-1/3 flex flex-col gap-2">
+            <div class="basis-1/3 flex flex-col gap-4">
 
                 <h2 class="font-semibold text-sm uppercase">
                     Recent Posts
                 </h2>
-
-                    <a href="/necessary-myths/">
-                        <p>
-                            Necessary Myths
-                        </p>
-                        <span>
-                            May 30
-                        </span>
-                    </a>
-                    <a href="/errors-of-law/">
-                        <p>
-                            Errors of Law
-                        </p>
-                        <span>
-                            July 15
-                        </span>
-                    </a>
+                {{ range first 2 (where site.RegularPages "Type" "articles") }}
+                <a href="{{ .Permalink }}"
+                    class="text-gray-600 border-gray-500 border-l-2 border-solid pl-1 hover:border-primary">
+                    <p class="text-sm">
+                        {{ .Title }}
+                    </p>
+                    <span class="text-gray-600 text-xs font-medium uppercase">
+                        {{ .Date.Format "January 2" }}
+                    </span>
+                </a>
+                {{ end }}
             </div>
 
             <div class="basis-1/3 flex flex-col gap-2">
@@ -72,7 +91,7 @@
                     Social
                 </h2>
 
-                <a class="social-link" href="https://uk.linkedin.com/in/max-winthrop-50914b28">
+                <a class="text-sm" href="{{ .Site.Params.LinkedIn }}">
                     <i class="fab fa-linkedin"></i>
                     <p>LinkedIn</p>
                 </a>
@@ -82,4 +101,5 @@
 
     </footer>
 </body>
+
 </html>

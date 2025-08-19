@@ -3,6 +3,7 @@
 @theme {
   --font-playfair: "Playfair Display", serif;
   --font-roboto: "Roboto", sans-serif;
+  --color-primary: #d7b032;
 }
 
 @source "hugo_stats.json";

@@ -2,6 +2,9 @@ baseURL = 'https://maxwinthrop.co.uk/'
 languageCode = 'en-gb'
 title = 'A little learning'
 
+[params]
+LinkedIn = 'https://uk.linkedin.com/in/max-winthrop-50914b28'
+
 [[menu.main]]
   name = "Articles"
   url = "/articles/"

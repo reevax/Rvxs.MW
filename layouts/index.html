@@ -1,4 +1,33 @@
 {{ define "main" }}
-    <h2>{{ .Title }}</h2>
-    {{ .Content }}
+<div class="container mx-auto py-8 px-8 lg:px-0 flex flex-col gap-8 max-w-4xl">
+
+    {{ $articles := where site.RegularPages "Type" "articles" }}
+    {{ with index $articles 0 }}
+    <a href="{{ .Permalink }}" class="flex flex-col gap-2 group">
+        {{ $hero := .Resources.GetMatch "hero.*" }}
+        {{ if $hero }}
+        <img src="{{ $hero.RelPermalink }}" alt="{{ .Title }}" class="w-full aspect-auto object-cover">
+        {{ end }}
+        <h2 class="text-3xl font-playfair group-hover:text-primary">{{ .Title }}</h2>
+        <time class="text-gray-600 text-sm">{{ .Date.Format "January 2, 2006" }}</time>
+        <p class="text-lg">{{ .Description }}</p>
+    </a>
+    {{ end }}
+
+    <div class="grid lg:grid-cols-2 gap-8">
+        {{ range after 1 (first 4 $articles) }}
+        <a href="{{ .Permalink }}" class="group">
+            <article>
+                {{ $hero := .Resources.GetMatch "hero.*" }}
+                {{ if $hero }}
+                <img src="{{ $hero.RelPermalink }}" alt="{{ .Title }}" class="w-full h-64 object-cover">
+                {{ end }}
+                <h3 class="text-2xl font-playfair group-hover:text-primary">{{ .Title }}</h3>
+                <time class="text-gray-600 text-sm">{{ .Date.Format "Jan 2" }}</time>
+                <p class="mt-2 text-sm">{{ .Description | truncate 100 }}</p>
+            </article>
+        </a>
+        {{ end }}
+    </div>
+</div>
 {{ end }}

@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="p-8">
+    <div class="container mx-auto flex gap-4 justify-center flex-col lg:flex-row max-w-4xl items-center">
+        <div class="flex flex-col gap-4 max-w-prose">
+            <h1 class="text-2xl font-semibold font-playfair">
+                About Max
+            </h1>
+            <p class="text-gray-600 text-base/relaxed">
+                After studying history and music, Max took a circuitous route into the legal profession and to the north
+                east of England. He is a partner at the Newcastle firm Sintons LLP and practices nationally in the
+                fields of employment and discrimination. He is often quoted in the media on matters related to
+                employment law and litigation and has appeared on both national radio and television. In 2017 he was
+                appointed the Chair of the Law Society’s Employment Law Committee. He is married and lives in
+                Northumberland.
+            </p>
+            <h1 class="text-2xl font-semibold font-playfair">
+                About the blog
+            </h1>
+            <p class="text-gray-600 text-base/relaxed">
+                Having been introduced to the works of Ludwig Wittgenstein by an employment judge during a submission on
+                implied terms, Max has always believed that lawyer should be more open to ideas outside their apparent
+                discipline. Unfortunately, in these austere times, the opportunities for such discourse are becoming
+                increasing rare, and whilst looking forward to the possibility that future cases may involve statutes
+                older than the Act of Annates of 1532 or more obscure than the Cemetery Clauses Act of 1847, this blog
+                is intended to cover aspects of knowledge that wouldn’t normally feature in skeleton arguments in the
+                employment tribunal.
+            </p>
+        </div>
+        <aside class="max-w-sm">
+            {{ $profile := .Resources.GetMatch "max.jpg" }}
+            <img src="{{ $profile.Permalink }}" alt="Max Winthrop" />
+        </aside>
+    </div>
+</div>
+{{ end }}

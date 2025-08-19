@@ -1,5 +1,11 @@
 {{ define "main" }}
-<article class="container mx-auto py-8 prose prose-headings:font-playfair">
+<article class="container mx-auto p-8 max-w-4xl">
+    {{ $image := .Resources.GetMatch "hero.jpg" }}
+    <div class="mx-auto mb-8">
+        <img src="{{ $image.Permalink }}" alt="{{ $image.Title }}" class="mx-auto block" />
+    </div>
+    <div class="prose prose-headings:font-playfair mx-auto">
     {{ .Content }}
+    </div>
 </article>
 {{ end }}
